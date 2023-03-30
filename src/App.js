@@ -1,15 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
-import Item from './components/Item';
 import ItemList from './components/ItemList';
 import items from './assets/items';
+import Cart from './components/Cart';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <ItemList items={items}/>
+      <Header />
+      <ItemList items={items} />
+      <Cart />
     </div>
   );
 }

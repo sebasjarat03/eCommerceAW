@@ -2,13 +2,15 @@ import React from 'react'
 import Item from '../Item'
 
 
-function ItemList(students) {
+function ItemList(items) {
+
   return (
     <div class="container mt-4">
       <div class="row">
-        {students.items.map(item => (
+        {items.items.map(item => (
           <Item
             key={item.id}
+            id={item.id}
             image={item.image}
             title={item.title}
             description={item.description}
