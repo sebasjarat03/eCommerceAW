@@ -1,27 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const loginSlice = createSlice({
-    name: 'login',
-    initialState: {
-        isLoggedIn: false,
-        userName: ''
+  name: "login",
+  initialState: {
+    isLoggedIn: false,
+    user: null,
+    showSignModal: false,
+  },
+  reducers: {
+    login(state) {
+      state.isLoggedIn = true;
     },
-    reducers: {
-        login(state, action) {
-            state.isLoggedIn = true;
-            state.userName = action.payload;
-        },
-        logout(state) {
-            state.isLoggedIn = false;
-            state.userName = '';
-        }
-    }
+    logout(state) {
+      state.isLoggedIn = false;
+      state.user = null;
+    },
+    setSignModal(state) {
+      state.showSignModal = !state.showSignModal;
+    },
+    setUser(state, action) {
+      state.user = action.payload;
+    },
+  },
 });
 
 export const loginActions = loginSlice.actions;
 
 export const selectLogin = (state) => state.login.isLoggedIn;
 
-export const selectUserName = (state) => state.login.userName;
+export const selectUser = (state) => state.login.user;
+
+export const selectShowSignModal = (state) => state.login.showSignModal;
 
 export default loginSlice;
